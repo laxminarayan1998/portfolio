@@ -1,3 +1,3 @@
 abstract class StringConstants {
-  static String appName = 'swapping Chain';
+  static String appName = 'Laxminarayan\'s Portfolio - An App Developer';
 }

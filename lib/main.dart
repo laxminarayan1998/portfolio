@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +18,6 @@ void main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await initializeServices();
-    Firebase.initializeApp();
 
     // await FacebookAuth.instance.webInitialize(
     //   appId: "1170078440473690",
@@ -33,14 +32,11 @@ void main() async {
 }
 
 Future<void> initializeServices() async {
-
   Get.put(CommonService(), permanent: true);
 }
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-
-  final _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -52,32 +48,24 @@ class MyApp extends StatelessWidget {
       const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
     );
 
-    return FutureBuilder(
-        future: _initialization,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {}
-          if (snapshot.connectionState == ConnectionState.done) {
-            return ScreenUtilInit(
-              designSize: const Size(360, 690),
-              minTextAdapt: true,
-              splitScreenMode: true,
-              builder: (_, child) => GetMaterialApp(
-                scrollBehavior: AppScrollBehavior(),
-                locale: const Locale('en'),
-                title: 'appName'.tr,
-                debugShowCheckedModeBanner: false,
-                themeMode: ThemeMode.light,
-                getPages: AppPages.pages,
-                theme: themeData(context),
-                darkTheme: darkThemeData(context),
-                translations: TranslationFile(),
-                initialRoute: AppPages.initial,
-                enableLog: true,
-              ),
-            );
-          }
-          return const CircularProgressIndicator();
-        });
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) => GetMaterialApp(
+        scrollBehavior: AppScrollBehavior(),
+        locale: const Locale('en'),
+        title: StringConstants.appName,
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.dark,
+        getPages: AppPages.pages,
+        theme: themeData(context),
+        darkTheme: darkThemeData(context),
+        translations: TranslationFile(),
+        initialRoute: AppPages.initial,
+        enableLog: true,
+      ),
+    );
   }
 }
 

@@ -1,6 +1,5 @@
 // coverage:ignore-file
 
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:get/get.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
@@ -62,12 +61,10 @@ class CommonService extends GetxController {
     Hive.box<void>(StringConstants.appName).clear();
   }
 
-  /// initialize Device plugin
-  var deviceInfoPlugin = DeviceInfoPlugin();
+
 
   @override
   void onInit() async {
-    deviceInfoPlugin = DeviceInfoPlugin();
     await Hive.initFlutter();
     await Hive.openBox<dynamic>(
       StringConstants.appName,

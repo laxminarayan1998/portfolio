@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:laxminarayan_portfolio/pages/home/home_screen.dart';
 import 'package:laxminarayan_portfolio/pages/pages.dart';
 import 'package:laxminarayan_portfolio/pages/splash/splash_screen.dart';
 
@@ -18,13 +19,13 @@ class AppPages {
       binding: SplashBinding(),
       transition: Transition.fadeIn,
     ),
-    // GetPage(
-    //   name: _Paths.home,
-    //   transitionDuration: transistionDuration,
-    //   page: () => const HomeView(),
-    //   binding: HomeBinding(),
-    //   transition: Transition.fadeIn,
-    // ),
+    GetPage(
+      name: _Paths.home,
+      transitionDuration: transistionDuration,
+      page: () => const HomeScreen(),
+      binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
     // GetPage(
     //   name: _Paths.onBoarding,
     //   transitionDuration: transistionDuration,

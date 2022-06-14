@@ -4,6 +4,7 @@ import 'colors_value.dart';
 
 ThemeData themeData(BuildContext context) => ThemeData(
       // primarySwatch: Colors.black,
+      fontFamily: 'Lato',
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         titleTextStyle: TextStyle(
@@ -37,6 +38,7 @@ ThemeData themeData(BuildContext context) => ThemeData(
     );
 
 ThemeData darkThemeData(BuildContext context) => ThemeData(
+      fontFamily: 'Lato',
       appBarTheme: const AppBarTheme(
         titleTextStyle: TextStyle(
           color: ColorsValue.whiteColor,
